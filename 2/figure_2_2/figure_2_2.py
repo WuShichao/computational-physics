@@ -8,7 +8,7 @@ P23 figure2.2的源程序
 import matplotlib.pyplot as plt
 
 DENSITY = 1.29 #空气密度(kg/m3)
-C = 0.5        #阻力系数
+C = 1.0        #阻力系数
 A = 0.33       #截面积(m2)
 M = 70.0       #人车质量(kg)
 v1 = 4.0       #（无阻力）速度(m/s)
