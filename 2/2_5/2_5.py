@@ -8,7 +8,7 @@ Created on Mon Jan 11 17:55:48 2016
 import matplotlib.pyplot as plt
 
 DENSITY = 1.29 #空气密度(kg/m3)
-C = 0.5        #阻力系数
+C = 1.0        #阻力系数
 A = 0.33       #截面积(m2)
 M = 70.0       #人车质量(kg)
 v = 7.0        #转折速度(m/s)
