@@ -20,39 +20,39 @@ for theta in range(30,60,5):
     t = 0
     x = 0.0
     y = 0.0
-    displayment_x = []
-    displayment_y = []
+    displacement_x = []
+    displacement_y = []
     theta *= (pi/180)
     vy = v0 * sin(theta)
     while y >= 0:
-        displayment_x.append(x/1000)
-        displayment_y.append(y/1000)
+        displacement_x.append(x/1000)
+        displacement_y.append(y/1000)
         x += v0 * cos(theta) * dt
         y += vy * dt
         vy -= g * dt
         t += dt
-    trajectory1.append([displayment_x,displayment_y])
+    trajectory1.append([displacement_x,displacement_y])
 
 #-------欧拉法计算有空气阻力时的炮弹轨迹--------
 for theta in range(30,60,5):
     t = 0
     x = 0.0
     y = 0.0
-    displayment_x = []
-    displayment_y = []
+    displacement_x = []
+    displacement_y = []
     theta *= (pi/180)
     vx = v0 * cos(theta)
     vy = v0 * sin(theta)
     while y >= 0:
-        displayment_x.append(x/1000)
-        displayment_y.append(y/1000)
+        displacement_x.append(x/1000)
+        displacement_y.append(y/1000)
         v = sqrt(vx**2 + vy**2)
         x += vx * dt
         vx -= k*v*vx*dt
         y += vy * dt
         vy -= (g+k*v*vy) * dt
         t += dt       
-    trajectory2.append([displayment_x,displayment_y])
+    trajectory2.append([displacement_x,displacement_y])
 
 #------------------绘图---------------------
 plt.subplot(121)

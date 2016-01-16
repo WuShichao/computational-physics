@@ -26,98 +26,98 @@ theta *= (pi/180)
 t = 0
 x = 0.0
 y = 0.0
-displayment_x = []
-displayment_y = []
+displacement_x = []
+displacement_y = []
 vx = v0 * cos(theta)
 vy = v0 * sin(theta)
 while y >= 0:
-    displayment_x.append(x/1000)
-    displayment_y.append(y/1000)
+    displacement_x.append(x/1000)
+    displacement_y.append(y/1000)
     v = sqrt(vx**2 + vy**2)
     x += vx * dt
     y += vy * dt
     vx -= k*v*vx*dt
     vy -= (g+k*v*vy) * dt
     t += dt       
-trajectory.append([displayment_x,displayment_y])
+trajectory.append([displacement_x,displacement_y])
 
 #Isothermal model
 t = 0
 x = 0.0
 y = 0.0
-displayment_x = []
-displayment_y = []
+displacement_x = []
+displacement_y = []
 vx = v0 * cos(theta)
 vy = v0 * sin(theta)
 while y >= 0:
-    displayment_x.append(x/1000)
-    displayment_y.append(y/1000)
+    displacement_x.append(x/1000)
+    displacement_y.append(y/1000)
     v = sqrt(vx**2 + vy**2)
     x += vx * dt
     y += vy * dt
     vx -= k*exp(-y/y0)*v*vx*dt
     vy -= (g+k*exp(-y/y0)*v*vy) * dt
     t += dt    
-trajectory.append([displayment_x,displayment_y])
+trajectory.append([displacement_x,displacement_y])
 
 #Adiabatic model (Reference)
 t = 0
 x = 0.0
 y = 0.0
-displayment_x = []
-displayment_y = []
+displacement_x = []
+displacement_y = []
 vx = v0 * cos(theta)
 vy = v0 * sin(theta)
 while y >= 0:
-    displayment_x.append(x/1000)
-    displayment_y.append(y/1000)
+    displacement_x.append(x/1000)
+    displacement_y.append(y/1000)
     v = sqrt(vx**2 + vy**2)
     x += vx * dt
     y += vy * dt
     vx -= k*(1-a*y/T0)**alpha*v*vx*dt
     vy -= (g+k*(1-a*y/T0)**alpha*v*vy) * dt
     t += dt    
-trajectory.append([displayment_x,displayment_y])
+trajectory.append([displacement_x,displacement_y])
 
 #Adiabatic model (Winter)
 T = 273.15
 t = 0
 x = 0.0
 y = 0.0
-displayment_x = []
-displayment_y = []
+displacement_x = []
+displacement_y = []
 vx = v0 * cos(theta)
 vy = v0 * sin(theta)
 while y >= 0:
-    displayment_x.append(x/1000)
-    displayment_y.append(y/1000)
+    displacement_x.append(x/1000)
+    displacement_y.append(y/1000)
     v = sqrt(vx**2 + vy**2)
     x += vx * dt
     y += vy * dt
     vx -= k*(1-a*y/T0)**alpha*(T/T0)**alpha*v*vx*dt
     vy -= (g+k*(1-a*y/T0)**alpha*(T/T0)**alpha*v*vy) * dt
     t += dt    
-trajectory.append([displayment_x,displayment_y])
+trajectory.append([displacement_x,displacement_y])
 
 #Adiabatic model (Summer)
 T = 313.15
 t = 0
 x = 0.0
 y = 0.0
-displayment_x = []
-displayment_y = []
+displacement_x = []
+displacement_y = []
 vx = v0 * cos(theta)
 vy = v0 * sin(theta)
 while y >= 0:
-    displayment_x.append(x/1000)
-    displayment_y.append(y/1000)
+    displacement_x.append(x/1000)
+    displacement_y.append(y/1000)
     v = sqrt(vx**2 + vy**2)
     x += vx * dt
     y += vy * dt
     vx -= k*(1-a*y/T0)**alpha*(T/T0)**alpha*v*vx*dt
     vy -= (g+k*(1-a*y/T0)**alpha*(T/T0)**alpha*v*vy) * dt
     t += dt    
-trajectory.append([displayment_x,displayment_y])
+trajectory.append([displacement_x,displacement_y])
 
 #------------------绘图---------------------
 plt.title("Trajectory of cannon shell")
