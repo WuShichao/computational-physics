@@ -15,7 +15,8 @@ alpha = 2.5           #指数
 T0 = 300              #海平面处的温度（K）
 dt = 0.01             #时间间隔（s） 
 target = 167.64       #目标距离（m）
-velocity = []         #此列表存储击中目标所需的初始速度
+Angle = []            #此列表存储角度  
+Velocity = []         #此列表存储击中目标所需的初始速度
 
 #caculate B2/m
 def B2M(velocity):
@@ -24,9 +25,10 @@ def B2M(velocity):
     coefficient = 0.0039 + 0.0058/(1+exp((velocity-vd)/delta))
     return coefficient
 
-for angle in tqdm(range(91)):
+#--------------穷举所有情况--------------
+for angle in tqdm(range(91)):  
     angle *= (pi/180)
-    for v in range(2000):
+    for v in range(3400):  #精确到0.1m/s，设定速度上限为340.0m/s
         v /= 10.0
         x = 0.0
         y = 0.0
@@ -51,11 +53,15 @@ for angle in tqdm(range(91)):
             r = -Y[-2]/Y[-1]
             max_range = (X[-2]+r*X[-1])/(r+1)
 
-        if abs(max_range-target) < 2:
-            velocity.append(v)
+        if abs(max_range-target) < 0.5:
+            Angle.append(angle/pi*180)
+            Velocity.append(v)
             break
-print len(velocity)        
-#plt.plot(range(91),velocity,"k-")
-#plt.xlabel("Angle (degrees)")
-#plt.ylabel("Required velocity (m/s)")
-#plt.show()
+
+#---------------绘图---------------
+plt.plot(Angle,Velocity,"k-")
+plt.plot([0,90],[49.174,49.174],"r--",label="110mph")
+plt.xlabel("Angle (degrees)")
+plt.ylabel("Required velocity (m/s)")
+plt.legend(loc=2)
+plt.show()
