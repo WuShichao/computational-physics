@@ -43,11 +43,11 @@ def TRAJECTORY(K,smooth_or_not):
         y += vy * dt
         v_net = sqrt(vx**2+vy**2)
         if smooth_or_not == "not smooth":
-            vx += (-C(v_net)*density*area*v_net*vx/mass - K*vy) * dt
-            vy += (-C(v_net)*density*area*v_net*vy/mass + K*vx - g) * dt
+            vx += (-0.5*C(v_net)*density*area*v_net*vx/mass - K*vy) * dt
+            vy += (-0.5*C(v_net)*density*area*v_net*vy/mass + K*vx - g) * dt
         else:
-            vx += (-density*area*v_net*vx/mass - K*vy) * dt
-            vy += (-density*area*v_net*vy/mass + K*vx - g) * dt
+            vx += (-0.5*density*area*v_net*vx/mass - K*vy) * dt
+            vy += (-0.5*density*area*v_net*vy/mass + K*vx - g) * dt
     
     trajectory.append([displacement_x,displacement_y])
 
@@ -64,5 +64,7 @@ plt.plot(trajectory[0][0],trajectory[0][1],"k-.",label="no spin")
 plt.plot(trajectory[1][0],trajectory[1][1],"k-",label="normal drive")
 plt.plot(trajectory[2][0],trajectory[2][1],"k:",label="extra backspin")
 plt.plot(trajectory[3][0],trajectory[3][1],"k--",label="smooth ball")
-plt.legend(loc=2)
+plt.xlim(0,300)
+plt.ylim(0,80)
+plt.legend(loc=1)
 plt.show()
