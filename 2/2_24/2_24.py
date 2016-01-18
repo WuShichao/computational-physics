@@ -42,9 +42,11 @@ def TRAJECTORY(w,K0):
     trajectory.append([displacement_x,displacement_y])
 
 #--------caculate trajectories----------
+#backspin    
 for angular_velocity in range(1,11):
     angular_velocity *= (2*pi)
     TRAJECTORY(angular_velocity,k)
+#topspin
 for angular_velocity in range(1,11):
     angular_velocity *= (2*pi)
     TRAJECTORY(angular_velocity,-k)
