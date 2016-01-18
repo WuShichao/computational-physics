@@ -17,7 +17,7 @@ initial_velocity = 70.0  #(m/s)
 angle = 9                #(degrees)
 angle *= (pi/180)        #degree to rad
 dt = 0.01                #(s)
-trajectory = []          #trajectorys of several situations
+trajectory = []          #trajectories of several situations
 
 #caculate the coefficent C (B2/m)
 def C(velocity):
