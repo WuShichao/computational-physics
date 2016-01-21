@@ -2,7 +2,7 @@
 """
 Created on Wed Jan 20 19:32:31 2016
 Locate the boundary between the overdamped and underdamped regimes, 
-using Euler-Cromer.
+using Euler-Cromer method.
 @author: nightwing
 """
 
@@ -35,7 +35,7 @@ def DAMPED(Q):
     return [time,angle]    
 
 #------------------caculate----------------
-for q in linspace(5,10,10):
+for q in linspace(1,10,10):
     damped_pendulum.append(DAMPED(q))
 
 #------------------graph------------------    
@@ -43,11 +43,11 @@ plt.title("the boundary between the overdamped and underdamped")
 plt.xlabel("time (s)")
 plt.ylabel("angle (radians)")
 for i in range(len(damped_pendulum)):
-    if i == 2:
-        plt.plot(damped_pendulum[i][0],damped_pendulum[i][1],"g-",label="q=6.1")
+    if i == 5:
+        plt.plot(damped_pendulum[i][0],damped_pendulum[i][1],"g-",label="q=6.0")
     else:    
         plt.plot(damped_pendulum[i][0],damped_pendulum[i][1],"k:")
 plt.plot([0,t_end],[0,0],"r-",linewidth=1)
-plt.ylim(-0.05,0.2)
+plt.ylim(-0.2,0.2)
 plt.legend()
 plt.show()
