@@ -6,7 +6,7 @@ using Euler-Cromer method.
 @author: nightwing
 """
 
-from math import pi
+from math import sqrt,pi
 from numpy import linspace
 import matplotlib.pyplot as plt
 
@@ -37,6 +37,7 @@ def DAMPED(Q):
 #------------------caculate----------------
 for q in linspace(1,10,10):
     damped_pendulum.append(DAMPED(q))
+print "Analytic q = %.3f" % (2*sqrt(g/length))
 
 #------------------graph------------------    
 plt.title("the boundary between the overdamped and underdamped")
