@@ -41,8 +41,8 @@ situations.append(PHYSICAL_PENDULUM(0.5, 0.5, 2/3.0, 0.2, 50))
 situations.append(PHYSICAL_PENDULUM(0.5, 0.5, 2/3.0, 0.201, 50))
 situations.append(PHYSICAL_PENDULUM(0.5, 1.2, 2/3.0, 0.2, 150))
 situations.append(PHYSICAL_PENDULUM(0.5, 1.2, 2/3.0, 0.201, 150))
-delta_theta.append(np.array(abs(situations[0][1]-np.array(situations[1][1]))))
-delta_theta.append(np.array(abs(situations[2][1]-np.array(situations[3][1]))))
+delta_theta.append(abs(np.array(situations[0][1])-np.array(situations[1][1])))
+delta_theta.append(abs(np.array(situations[2][1])-np.array(situations[3][1])))
 
 #--------------graph---------------
 plt.subplot(121)
