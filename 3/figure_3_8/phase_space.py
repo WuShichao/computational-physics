@@ -12,7 +12,7 @@ g = 9.8               #gravity acceleration (m/s2)
 length = 9.8          #length of the rod (m)
 k = g / length        #g/length 
 dt = 0.04             #time step (s)
-t_end = 60            #end time (s)
+t_end = 500           #end time (s)
 situations = []       #this list store [time, angle]
 
 #caculate the physical pendulum
