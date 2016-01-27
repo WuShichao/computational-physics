@@ -5,13 +5,6 @@ Caculate different Poincare sections, using Euler-Cromer method.
 @author: nightwing
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 26 17:52:26 2016
-Poincare section (out of pi/4), using Euler-Cromer method.
-@author: nightwing
-"""
-
 from tqdm import tqdm
 from math import sin,pi
 import matplotlib.pyplot as plt
