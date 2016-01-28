@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 28 17:00:09 2016
-
+Caculate Poincare sections for a frequency which has nothing to do 
+with those intrinsic to the system, using Euler-Cromer method.
 @author: nightwing
 """
 
