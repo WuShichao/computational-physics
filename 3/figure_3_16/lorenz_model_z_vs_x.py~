@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb  5 14:45:51 2016
+Trajectory of the Lorenz model projected onto the x-z plane,
+with different r, using Euler method.
+@author: nightwing
+"""
+
+from tqdm import tqdm
+from numpy import linspace
+import matplotlib.pyplot as plt
+
+
+def LORENZ_MODEL(x, y, z, r):
+    delta = 10           # argument delta
+    b = 8.0 / 3          # argument b
+    t = 0                # initial time
+    dt = 0.0001          # time step
+    t_end = 50           # end of time
+    displacement_x = []  # this list store x
+    displacement_z = []  # this list store z
+    while t <= t_end:
+        displacement_x.append(x)
+        displacement_z.append(z)
+        x += (delta * (y - x)) * dt
+        y += (- x * z + r * x - y) * dt
+        z += (x * y - b * z) * dt
+        t += dt
+    return [displacement_x, displacement_z]
+
+# -----------------caculate------------------
+AMOUNTS = 500
+
+for r in tqdm(linspace(1, 25, AMOUNTS)):
+    phase_space = LORENZ_MODEL(1.0, 0.0, 0.0, r)
+
+    # -----------graph and save---------------
+    plt.figure(figsize=(8, 6))
+    plt.title("Phase space plot  z versus x")
+    plt.xlabel("x")
+    plt.ylabel("z")
+    plt.plot(phase_space[0], phase_space[1], "k-")
+    plt.xlim(-20, 20)
+    plt.ylim(0, 50)
+    plt.savefig("%s.png" % r)
+    plt.close()
