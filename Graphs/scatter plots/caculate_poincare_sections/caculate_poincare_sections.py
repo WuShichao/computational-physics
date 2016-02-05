@@ -61,3 +61,4 @@ for index in tqdm(range(0, number)):
     plt.xlim(-4,4)
     plt.ylim(-3,3)    
     plt.savefig("%s.png" % (index+1))
+    plt.close()
